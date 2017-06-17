@@ -53,4 +53,8 @@ $route['default_controller'] = 'datasiswa';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['datasiswa/show'] = 'Datasiswa/show';
+$route['chart/show'] = 'Chart/show';
+$route['login/show'] = 'Login/show';
+
  //$route['datasiswa'] = 'datasiswa/show';
