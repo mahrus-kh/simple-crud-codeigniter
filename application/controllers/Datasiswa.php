@@ -67,8 +67,8 @@ class Datasiswa extends CI_Controller
   public function add()
   {
     if ($this->input->is_ajax_request()) {
-      if ($this->validate($this->input->post()) == TRUE ) {
-        $this->m_datasiswa->add($this->input->post());
+      if ($this->validate($this->input->post()) == TRUE) {
+        $this->m_datasiswa->add($this->security->xss_clean($this->input->post()));
         echo TRUE;
       }
     }
@@ -89,7 +89,7 @@ class Datasiswa extends CI_Controller
   {
     if ($this->input->is_ajax_request()) {
       if ($this->validate($this->input->post()) == TRUE) {
-        $this->m_datasiswa->update($this->input->post());
+        $this->m_datasiswa->update($this->security->xss_clean($this->input->post()));
         echo TRUE;
       }
     }
@@ -115,7 +115,7 @@ class Datasiswa extends CI_Controller
       redirect(site_url('datasiswa/show'));
     }
   }
-  public function validate($data)
+  private function validate($data)
   {
     $this->load->library('form_validation');
     $this->form_validation->set_rules('nis','nis','required|trim|exact_length[8]|numeric|integer');
