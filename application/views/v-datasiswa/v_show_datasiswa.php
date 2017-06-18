@@ -11,10 +11,6 @@
         echo link_tag('assets/lte/plugins/datatables/jquery.dataTables.css"');
         echo link_tag('assets/lte/plugins/datatables/dataTables.bootstrap.css');
   ?>
-
-
-
-
   <!-- Font Awesome -->
   <?php //echo link_tag('assets/lte/plugins/font-awesome/css/font-awesome.min.css');?>
   <?php echo link_tag('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css'); ?>
@@ -312,7 +308,6 @@ function save() {
         else {
           alert("Data is Invalid")
         }
-
       }
     });
   }

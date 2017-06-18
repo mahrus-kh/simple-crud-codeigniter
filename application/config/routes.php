@@ -54,7 +54,15 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['datasiswa/show'] = 'Datasiswa/show';
+$route['datasiswa/validate'] = '';
+$route['datasiswa/check_session'] = '';
+$route['datasiswa/check_alpha_space']='';
+
 $route['chart/show'] = 'Chart/show';
+$route['chart/check_session'] = '';
+
 $route['login/show'] = 'Login/show';
+$route['login/session'] = '';
+$route['login/validate'] = '';
 
  //$route['datasiswa'] = 'datasiswa/show';

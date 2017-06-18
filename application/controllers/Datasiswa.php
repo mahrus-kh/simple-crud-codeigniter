@@ -119,14 +119,23 @@ class Datasiswa extends CI_Controller
   {
     $this->load->library('form_validation');
     $this->form_validation->set_rules('nis','nis','required|trim|exact_length[8]|numeric|integer');
-    $this->form_validation->set_rules('nama','nama','required|trim|max_length[255]|alpha');
+    $this->form_validation->set_rules('nama','nama','required|trim|max_length[255]|callback_check_alpha_space');
     $this->form_validation->set_rules('jk','jk','required|exact_length[1]|alpha');
-    $this->form_validation->set_rules('tmpt_lahir','tmpt_lahir','required|trim|max_length[225]|alpha');
+    $this->form_validation->set_rules('tmpt_lahir','tmpt_lahir','required|trim|max_length[225]|callback_check_alpha_space');
     $this->form_validation->set_rules('tgl_lahir','tgl_lahir','required');
-    $this->form_validation->set_rules('alamat','alamat','required|trim|max_length[255]');
-    $this->form_validation->set_rules('nama_ayah','nama_ayah','trim|max_length[255]|alpha');
-    $this->form_validation->set_rules('nama_ibu','nama_ibu','trim|max_length[255]|alpha');
+    $this->form_validation->set_rules('alamat','alamat','required|trim|max_length[255]|alpha_numeric_spaces');
+    $this->form_validation->set_rules('nama_ayah','nama_ayah','trim|max_length[255]|callback_check_alpha_space');
+    $this->form_validation->set_rules('nama_ibu','nama_ibu','trim|max_length[255]|callback_check_alpha_space');
     return $this->form_validation->run();
+  }
+  public function check_alpha_space($data)
+  {
+    if (!preg_match('/^[a-zA-Z\s]+$/',$data)) {
+        return FALSE;
+    }
+    else {
+        return TRUE;
+    }
   }
 
   private function check_session()

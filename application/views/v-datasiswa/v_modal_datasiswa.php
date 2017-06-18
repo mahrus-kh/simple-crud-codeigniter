@@ -1,10 +1,9 @@
 <!--Awal Modal Tambah Siswa-->
-        <div class="modal" id="modal-datasiswa">
+        <div class="modal fade" id="modal-datasiswa">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h3 class="modal-title">Tambah Siswa</h3>
-                    <div class="error"></div>
+                <h3 class="modal-title">Tambah Siswa</h3>                  
               </div>
               <div class="modal-body">
                 <form action="#" class="form-horizontal" id="form-datasiswa">

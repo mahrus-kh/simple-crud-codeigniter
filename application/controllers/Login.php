@@ -23,7 +23,7 @@ class Login extends CI_Controller
   {
     if ($this->input->is_ajax_request()) {
         if ($this->validate($this->input->post()) == TRUE) {
-          $user = $this->m_login->auth($this->input->post());
+          $user = $this->m_login->auth($this->security->xss_clean($this->input->post()));
           if (!empty($user)) {
             $this->session($user);
             echo TRUE;
@@ -56,11 +56,11 @@ class Login extends CI_Controller
     $this->session->sess_destroy();
     redirect(site_url('login/show'));
   }
-  public function validate($data)
+  private function validate($data)
   {
     $this->load->library('form_validation');
     $this->form_validation->set_rules('username','username','required|trim|alpha_dash');
-    $this->form_validation->set_rules('password','password','required|trim|alpha_dash');
+    $this->form_validation->set_rules('password','password','required|trim');
     return $this->form_validation->run();
   }
   public function error()
