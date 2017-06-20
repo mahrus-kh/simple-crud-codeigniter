@@ -22,6 +22,7 @@ class Datasiswa extends CI_Controller
       $data['keterangan'] =  $this->session->keterangan;
       $this->load->view('v-datasiswa/v_show_datasiswa',$data);
       $this->load->view('v-datasiswa/v_modal_datasiswa');
+      $this->load->view('v-datasiswa/v_modal_trash');
   }
   public function show_data()
   {
@@ -44,7 +45,7 @@ class Datasiswa extends CI_Controller
                     'dt' => 'aksi',
                     'formatter' => function($a) {
                         return '<button type="button" class="btn btn-success btn-sm" onclick="edit(' . $a .  ')"><span class="glyphicon glyphicon-edit" aria-hidden="true"></button>
-                                <button type="button" class="btn btn-danger btn-sm" onclick="trash(' . $a .  ')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></button>';
+                                <button type="button" class="btn btn-danger btn-sm" onclick="del(' . $a .  ')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></button>';
                     }
                 ),
             );

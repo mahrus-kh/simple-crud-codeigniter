@@ -242,7 +242,26 @@ $(document).ready(function(e) {
       autoclose: true,
       format: "yyyy-mm-dd",
     });
+
+    $("#trash").click(function() {
+      $.ajax({
+          type: "POST",
+          url: "trash",
+          data: "nis="+$("#nis_trash").val(),
+          success: function () {
+            $("#modal-trash").modal("hide")
+            count_students()
+            datasiswadt.ajax.reload(null,false)
+          }
+      });
+    });
 });
+
+function del(nis) {
+    $("#nis_alert").html("Hapus Datasiswa ID : " + nis)
+    $("#nis_trash").val(nis)
+    $("#modal-trash").modal("show")
+};
 
 function add() {
   method = "add";
@@ -311,20 +330,6 @@ function save() {
       }
     });
   }
-};
-
-function trash(nis) {
-    if (confirm("Hapus data dengan ID : " + nis)) {
-        $.ajax({
-            type: "POST",
-            url: "trash",
-            data: "nis="+nis,
-            success: function () {
-              count_students()
-              datasiswadt.ajax.reload(null,false)
-            }
-        });
-    }
 };
 
 function count_students() {
