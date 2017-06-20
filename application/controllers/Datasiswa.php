@@ -51,7 +51,7 @@ class Datasiswa extends CI_Controller
 
             $sql_details = array(
                 'user' => 'root',
-                'pass' => '',
+                'pass' => 'root',
                 'db' => 'db_cidatasiswa',
                 'host' => 'localhost'
             );
